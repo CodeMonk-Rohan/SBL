@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Individual Digits</title>
+</head>
+<body>
+  <h2>Sum of Individual Digits</h2>
+
+  <form method="post">
+    Enter a number: <input type="text" name="number">
+    <input type="submit" name="submit" value="Submit">
+  </form>
+  
+  <!-- <?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $number = $_POST["number"];
+
+    if (is_numeric($number)) {
+      $sum = 0;
+      $num_length = strlen($number);
+
+      for ($i = 0; $i < $num_length; $i++) {
+        $sum += $number[$i];
+      }
+
+      echo "<p>Sum of individual digits of $number is: $sum</p>";
+    } else {
+      echo "<p>Please enter a valid number.</p>";
+    }
+  }
+  ?> -->
+</body>
+</html>

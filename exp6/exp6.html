@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number to Words Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+      width: 200px;
+    }
+
+    #result {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <label for="numberInput">Enter a number (0 to 999):</label>
+  <input type="text" id="numberInput" oninput="convertToWords()">
+
+  <p id="result"></p>
+
+  <script>
+    function convertToWords() {
+      var numberInput = document.getElementById("numberInput").value.trim();
+      var resultElement = document.getElementById("result");
+
+      if (!isValidInput(numberInput)) {
+        resultElement.innerText = "Invalid input. Please enter a number from 0 to 999.";
+        return;
+      }
+
+      var number = parseInt(numberInput, 10);
+      var ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+      var teens = ["", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+      var tens = ["", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+
+      var words = "";
+
+      if (number === 0) {
+        words = "zero";
+      } else {
+        var hundredsDigit = Math.floor(number / 100);
+        var tensDigit = Math.floor((number % 100) / 10);
+        var onesDigit = number % 10;
+
+        if (hundredsDigit > 0) {
+          words += ones[hundredsDigit] + " hundred";
+          if (tensDigit > 0 || onesDigit > 0) {
+            words += " and ";
+          }
+        }
+
+        if (tensDigit === 1 && onesDigit > 0) {
+          words += teens[onesDigit];
+        } else {
+          words += tens[tensDigit];
+          if (tensDigit > 0 && onesDigit > 0) {
+            words += "-";
+          }
+          words += ones[onesDigit];
+        }
+      }
+
+      resultElement.innerText = "In words: " + words;
+    }
+
+    function isValidInput(input) {
+      var numberPattern = /^[0-9]{1,3}$/;
+      return numberPattern.test(input);
+    }
+  </script>
+</body>
+</html>

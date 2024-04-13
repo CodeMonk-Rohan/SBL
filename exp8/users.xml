@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user>
+    <id>1</id>
+    <name>John Doe</name>
+    <email>john@example.com</email>
+    <age>30</age>
+    <city>New York</city>
+  </user>
+  <user>
+    <id>2</id>
+    <name>Alice Smith</name>
+    <email>alice@example.com</email>
+    <age>25</age>
+    <city>Los Angeles</city>
+  </user>
+  <user>
+    <id>3</id>
+    <name>Bob Johnson</name>
+    <email>bob@example.com</email>
+    <age>35</age>
+    <city>Chicago</city>
+  </user>
+
+</users>

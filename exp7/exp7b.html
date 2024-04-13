@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Palindrome Check</title>
+</head>
+<body>
+  <h2>Palindrome Check</h2>
+
+  <form method="post">
+    Enter a number: <input type="text" name="number">
+    <input type="submit" name="submit" value="Submit">
+  </form>
+
+  <?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $number = $_POST["number"];
+
+    if (is_numeric($number)) {
+      $original_number = $number;
+      $reverse = 0;
+
+      while ($number != 0) {
+        $remainder = $number % 10;
+        $reverse = $reverse * 10 + $remainder;
+        $number = (int)($number / 10);
+      }
+
+      if ($original_number == $reverse) {
+        echo "<p>$original_number is a Palindrome number.</p>";
+      } else {
+        echo "<p>$original_number is not a Palindrome number.</p>";
+      }
+    } else {
+      echo "<p>Please enter a valid number.</p>";
+    }
+  }
+  ?>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Country Capitals</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    select {
+      padding: 8px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    #capital {
+      color: blue;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <label for="countries">Select a country:</label>
+  <select id="countries" onchange="displayCapital()">
+    <option value="none">Select a country</option>
+    <option value="usa">USA</option>
+    <option value="uk">UK</option>
+    <option value="france">France</option>
+    <option value="germany">Germany</option>
+    <option value="japan">Japan</option>
+  </select>
+
+  <p id="capital"></p>
+
+  <script>
+    function displayCapital() {
+      var selectBox = document.getElementById("countries");
+      var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+      var capitalElement = document.getElementById("capital");
+
+      switch (selectedValue) {
+        case "usa":
+          capitalElement.innerText = "Washington, D.C.";
+          break;
+        case "uk":
+          capitalElement.innerText = "London";
+          break;
+        case "france":
+          capitalElement.innerText = "Paris";
+          break;
+        case "germany":
+          capitalElement.innerText = "Berlin";
+          break;
+        case "japan":
+          capitalElement.innerText = "Tokyo";
+          break;
+        default:
+          capitalElement.innerText = "";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Numbers</title>
+  <script>
+    function calculateSum() {
+      var totalSum = 0;
+      var addNumbers = true;
+
+      while (addNumbers) {
+        var number = parseInt(prompt("Enter a number:"));
+        
+        if (isNaN(number)) {
+          alert("Invalid input. Please enter a valid number.");
+          continue;
+        }
+
+        totalSum += number;
+        
+        addNumbers = confirm("Do you want to add another number?");
+      }
+
+      alert("Sum of the numbers is: " + totalSum);
+    }
+  </script>
+</head>
+<body>
+  <h2>Sum of Numbers</h2>
+  <button onclick="calculateSum()">Calculate Sum</button>
+</body>
+</html>
+

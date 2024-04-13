@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factorial</title>
+  <script>
+    function calculateFactorial() {
+      var number = prompt("Enter a number:");
+      var factorial = 1;
+
+      for (var i = 1; i <= number; i++) {
+        factorial *= i;
+      }
+
+      alert("Factorial of " + number + " is: " + factorial);
+    }
+  </script>
+</head>
+<body>
+  <h2>Factorial</h2>
+  <button onclick="calculateFactorial()">Calculate Factorial</button>
+</body>
+</html>

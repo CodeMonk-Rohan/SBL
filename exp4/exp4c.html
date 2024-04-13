@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table</title>
+  <script>
+    function showMultiplicationTable() {
+      var number = prompt("Enter a number:");
+      var table = "";
+
+      for (var i = 1; i <= 10; i++) {
+        table += number + " x " + i + " = " + (number * i) + "\n";
+      }
+
+      alert("Multiplication table of " + number + ":\n\n" + table);
+    }
+  </script>
+</head>
+<body>
+  <h2>Multiplication Table</h2>
+  <button onclick="showMultiplicationTable()">Show Multiplication Table</button>
+</body>
+</html>
