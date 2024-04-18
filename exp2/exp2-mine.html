@@ -107,43 +107,50 @@
         }
     </script>
 
-    <center>
-        <font color="blue" size="6" face="arial">Registration Form</font>
-    </center>
-    <form onsubmit='return formValidator()' action="right.html">
-        First Name (Minimum 6 characters)<font color="red">*</font>
-        <input type='text' id='firstname' />
+<center>
+    <font color="blue" size="6" face="arial">Registration Form</font>
+</center>
 
+<form onsubmit='return formValidator()' action="right.html">
+    <table align="center">
+        <tr>
+            <td>First Name (Minimum 6 characters)<font color="red">*</font></td>
+            <td><input type='text' id='firstname' /></td>
+        </tr>
+        <tr>
+            <td>Last Name<font color="red">*</font></td>
+            <td><input type='text' id='lastname' /></td>
+        </tr>
+        <tr>
+            <td>Email Address <font color="red">*</font></td>
+            <td><input type='text' id='email' /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><font color="blue">(one e-mail id only):</font> <font color="blue">e.g. smith@hotmail.com</font></td>
+        </tr>
+        <tr>
+            <td>Password (Minimum 6 characters)<font color="red">*</font></td>
+            <td><input type='password' id='pass' /></td>
+        </tr>
+        <tr>
+            <td>Address<font color="red">*</font></td>
+            <td><textarea rows="2" cols="20" id='addr'></textarea></td>
+        </tr>
+        <tr>
+            <td>Mobile No<font color="red">*</font></td>
+            <td><input type='text' id='mobileno' /></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td><input type='radio' name="gender" />male <input type='radio' name="gender" />female</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type='Submit' value='submit' /> <input type='Reset' value='reset' /></td>
+        </tr>
+    </table>
+</form>
 
-        Last Name<font color="red">* </font> &nbsp;&nbsp;&nbsp;
-        <input type='text' id='lastname' />
-
-
-        Email Address <font color="red">*</font> &nbsp;&nbsp;&nbsp;
-        <input type='text' id='email' />
-
-        <font color="red">(one e-mail id only):</font> &nbsp;&nbsp;&nbsp;
-        <font color="blue">e.g. smith@hotmail.com</font>
-
-
-        Password (Minimum 6 characters)<font color="red">*</font> &nbsp;&nbsp;&nbsp;
-        <input type='password' id='pass' />
-
-
-        Address<font color="red">*</font> &nbsp;&nbsp;&nbsp;
-        <textarea rows="2" cols="20" id='addr'></textarea>
-
-
-        Mobile No<font color="red">*</font> &nbsp;&nbsp;&nbsp;
-        <input type='text' id='mobileno' />
-
-
-        Gender: <input type='radio' name="gender">male
-        <input type='radio' name="gender">female
-
-
-        <input type='Submit' value='submit' /> <input type='Reset' value='reset' />
-    </form>
 </body>
 
 </html>
