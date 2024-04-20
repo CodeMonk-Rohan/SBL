@@ -121,6 +121,7 @@ function displayBooks(query = ""){
                 users[currentUserIndex].borrowed.push(book);
                 localStorage.setItem("users", JSON.stringify(users))
                 localStorage.setItem("books", JSON.stringify(books))
+                displayBorrowedBooks()
             }else{
                 alert("You have already borrowed this book!")
             }
