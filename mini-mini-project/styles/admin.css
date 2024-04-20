@@ -1,1 +1,11 @@
 /* CSS for admin panel goes here */
+.books-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 208, 208);
+}
+
+.book-item{
+    display: flex;
+    justify-content: space-around;
+}

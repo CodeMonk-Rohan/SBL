@@ -4,11 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/admin.css">
 </head>
 
 <body>
-    <p>This is supposed to be admin panel</p>
+    <!-- This section is where the Administrator can add new books -->
+    <form id="book-form">
+        <input id="book-name-input" placeholder="Book Name" value="">
+        <br>
+        <input id="book-author-input" placeholder="Author" value="">
+        <br>
+        <input id="book-qty" placeholder="0" value="0" type="number"></input>
+        <br>
+        
+        <button>Add</button>
+        
+    </form>
+
+    <!-- Search Box here -->
+    <input id="search-input" placeholder="Search by Author/Book">
+    </input>
+
+    <!-- This section is where the list of books are shown -->
+    <div id="books-container" class="books-container">
+        <!-- This is where admin.js script will put the list of books! -->
+    </div>
+
+
+    <script src="scripts/admin.js"></script>
 </body>
 
 </html>
