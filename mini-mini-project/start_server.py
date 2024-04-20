@@ -12,8 +12,8 @@ def start_server():
     server = HTTPServer(address, SimpleHTTPRequestHandler)
     server.serve_forever()
 
-#to make sure the browser open and the server doesn't block that action, we use multithreading
-
+# open the browser at the login page and to ensure that the server doesn't block that action, 
+# we use multithreading
 
 if __name__ == "__main__":
     server_thread= threading.Thread(target=start_server)

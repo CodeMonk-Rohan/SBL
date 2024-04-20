@@ -16,7 +16,6 @@ function exists(username, existingUsers){
 
 }
 
-
 //Registration logic
 const registerForm = document.getElementById("register-form")
 registerForm.addEventListener('submit', function(event){
@@ -36,7 +35,8 @@ registerForm.addEventListener('submit', function(event){
     //New user
     const newUser = {
         username:username, 
-        password:password
+        password:password,
+        borrowed:[]
     }
     //If there are no users (brand new run) then we get a empty array, otherwise the data we expect
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
@@ -51,12 +51,15 @@ registerForm.addEventListener('submit', function(event){
     existingUsers.push(newUser);
     localStorage.setItem("users", JSON.stringify(existingUsers));
 
-    // if(username === "admin"){
-    //     window.location = "./admin.html"
-    // }else{
-    //     window.location = "./index.html"
-    // }
+    sessionStorage.setItem("username", username)
+    
+    if(username === "admin"){
+        window.location = "./admin.html"
+    }else{
+        window.location = "./index.html"
+    }
 
+    
     console.log(`Added ${username} to users`)
     
 

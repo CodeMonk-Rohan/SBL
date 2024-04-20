@@ -27,8 +27,6 @@ function exists(username, existingUsers){
 
 
 
-
-
 //Handle login
 loginForm.addEventListener('submit', function(event){
     
@@ -50,6 +48,7 @@ loginForm.addEventListener('submit', function(event){
     users.forEach(user => {
         if(user.password === password){
             found = true;
+            sessionStorage.setItem("username", username)
             if(username === "admin"){
                 window.location = "./admin.html";
             }else{
@@ -67,7 +66,8 @@ loginForm.addEventListener('submit', function(event){
 
 
 
-    if(username === "admin" && password === "admin"){
-        window.location = "./admin.html"
-    }
+    // if(username === "admin" && password === "admin"){
+    //     window.location = "./admin.html"
+    //     sessionStorage.setItem("username", "admin")
+    // }
 })

@@ -146,7 +146,10 @@ function removeBook(index) {
     // Update local storage with the removed book
     localStorage.setItem('books', JSON.stringify(books));
     // Refresh the displayed book list
+    searchInput.value = ""
+    console.log(books)
     displayBooks();
+
 }
 
 
