@@ -135,7 +135,7 @@ function filterBooks(searchTerm, books){
         book.name.toLowerCase().includes(searchTerm) || book.author.toLowerCase().includes(searchTerm)
     ) : books;
 
-    return filteredBooks
+    return filteredBooks;
 }
 
 
