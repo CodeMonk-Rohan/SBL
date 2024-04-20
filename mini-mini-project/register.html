@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="./styles/register.css">
+    <link rel="stylesheet" href="./styles/login.css">
 </head>
 
 
 <body>
-    <p>This is the registration page</p>
     <!-- Registration area -->
-    <form id="register-form">
-        <input id="username" placeholder="Username" value="">
+    <form id="register-form" class="login-form">
+        <p class="login-title">Register</p>
+        <input id="username" placeholder="Username" class="login-input" value="">
         <br>
-        <input id="password" placeholder="Password" value="">
+        <input id="password" placeholder="Password" class="login-input" value="">
         <br>
-        <button>Register</button>
-    </form>
+        <div class="butt-layout">
+            <button class="butt-register" id="register">Register</button>
+        </div>
     
     <script src="./scripts/register.js"></script>
 </body>

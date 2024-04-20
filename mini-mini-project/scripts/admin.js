@@ -100,10 +100,12 @@ function displayBooks(query = ""){
         const bookDiv = document.createElement('div');
         bookDiv.classList.add('book-item')
         const bookInfo = `
+        <div class="item-div">
             <h3>${book.name}</h3>
             <p><strong>By ${book.author}</p></strong>
             <p><strong>Quantity: ${book.quantity}</p>
             <button class="remove-book" data-book-index="${index}">Remove</button>
+        <div/>
         `;
 
         //Add the ABOVE defined html code, INTO the bookDiv

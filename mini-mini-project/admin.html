@@ -8,28 +8,33 @@
 </head>
 
 <body>
-    <!-- This section is where the Administrator can add new books -->
-    <form id="book-form">
-        <input id="book-name-input" placeholder="Book Name" value="">
-        <br>
-        <input id="book-author-input" placeholder="Author" value="">
-        <br>
-        <input id="book-qty" placeholder="0" value="0" type="number"></input>
-        <br>
-        
-        <button>Add</button>
-        
-    </form>
+    <div class="main-body">
+        <div class="admin-tools">
+            <p class="admin-tools-title">Book Details</p>
+             <!-- This section is where the Administrator can add new books -->
+            <form class="admin-form" id="book-form">
+                <input class="book-input" id="book-name-input" placeholder="Book Name" value="">
+                <br>
+                <input class="author-input" id="book-author-input" placeholder="Author" value="">
+                <br>
+                <input class="qty-input" id="book-qty" placeholder="0" value="0" type="number"></input>
+                <br>
+                
+                <button class="butt-add">ADD</button>
+                
+            </form>
+        </div>
+        <div class="stock-list">
+            <input class="admin-search" id="search-input" placeholder="Search by Author/Book"></input>
 
-    <!-- Search Box here -->
-    <input id="search-input" placeholder="Search by Author/Book">
-    </input>
-
-    <!-- This section is where the list of books are shown -->
-    <div id="books-container" class="books-container">
-        <!-- This is where admin.js script will put the list of books! -->
+            <!-- This section is where the list of books are shown -->
+            <div id="books-container" class="books-container">
+                <!-- This is where admin.js script will put the list of books! -->
+            </div>
+        </div>
+        <!-- Search Box here -->
+       
     </div>
-
 
     <script src="scripts/admin.js"></script>
 </body>
