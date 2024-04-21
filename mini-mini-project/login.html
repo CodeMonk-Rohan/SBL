@@ -10,13 +10,17 @@
 
 <body>
     <!-- Login area -->
-    <form id="login-form">
-        <input id="username" placeholder="Username" value="">
+    <form id="login-form" class="login-form">
+        <p class="login-title">Hello!</p>
+        <input id="username" placeholder="Username" class="login-input" value="">
         <br>
-        <input id="password" placeholder="Password" value="">
+        <input id="password" placeholder="Password" class="login-input" value="">
         <br>
-        <button>Login</button>
-        <button id="register">Register</button>
+        <div class="butt-layout">
+            <button class="butt-login">Login</button>
+            <button class="butt-register" id="register">Register</button>
+        </div>
+       
     </form>
     <script src="./scripts/authenticate.js"></script>
 </body>
