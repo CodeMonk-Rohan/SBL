@@ -47,9 +47,10 @@ function displayBorrowedBooks(){
         bookDiv.classList.add('book-item')
         //This puts the following html INTO the div created before
         const bookInfo = `
-            <h3>${book.name}</h3>
-            <p><strong>By ${book.author}</p></strong>
-            
+            <div class="user-item-div">
+                <h3>${book.name}</h3>
+                <p><strong>By ${book.author}</p></strong>   
+            <div/>  
         `;
 
         //Add the ABOVE defined html code, INTO the bookDiv
@@ -82,10 +83,13 @@ function displayBooks(query = ""){
         const bookDiv = document.createElement('div');
         bookDiv.classList.add('book-item')
         const bookInfo = `
+         <div class="item-div">
             <h3>${book.name}</h3>
             <p><strong>By ${book.author}</p></strong>
             <p><strong>Quantity: ${book.quantity}</p>
             <button class="add-book" data-book-index="${index}">Borrow</button>
+         <div/>
+            
         `;
 
         //Add the ABOVE defined html code, INTO the bookDiv

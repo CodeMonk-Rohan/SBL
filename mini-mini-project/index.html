@@ -8,23 +8,31 @@
 </head>
 
 <body>
-    <p>This is supposed to be the main screen for the normal user to interact with</p>
-
-    <!-- Books borrowed by user here -->
-    <p>Your books</p>
-    <div id="user-books">
-        
+    <div class="navbar">    
+        <img class="logo" src="././assets/book-square-svgrepo-com.svg" height="35px">
+        <p class="logo-title">Library Management System</p>
+        <a class="about-us" href="">About Us</a>
+        <button class="logout-button" id="logout-button"><img src="././assets/logout-2-svgrepo-com.svg" height="35px"></button>
     </div>
 
-    <!-- Books catalogue here -->
-    <input id="search-input" placeholder="Search by Author/Book">
-    </input>
-    <div id="books-container" class="books-container">
-        <!-- Here is where the books come -->
+        <div class="user-scr">
+
+            <div class="user-list">   
+                <p class="your-books">Your Books</p>
+                <div class="user-books" id="user-books"></div>
+            </div>
+
+            <!-- Books catalogue here -->
+            <div class="stock-list">
+                <input class="user-search" id="search-input" placeholder="Search by Author/Book"></input>
+                <div id="books-container" class="books-container"></div>
+          
+                <!-- Here is where the books come -->
+                
+            </div>
+        </div>
         
-    </div>
-    <!-- Logout -->
-    <button id="logout-button">Log Out</button>
+    
 
     <script src="./scripts/main.js"></script>
 </body>
