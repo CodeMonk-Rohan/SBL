@@ -1,21 +1,25 @@
 /* styling for the login page */
 body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-image: url(../assets/bg.jpg);
 }
+.login-scr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
 .login-form{
+    border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 12%;
-  padding-top: 1%;
+  padding-top: 0%;
   padding-bottom: 2%;
   width: 20%;
-  height: 40%;
+  height: 50%;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity as needed */
+  background-color: rgba(255, 255, 255, 0.296); /* Adjust opacity as needed */
   backdrop-filter: blur(10px); /* Adjust blur radius as needed */
   overflow: hidden;
 }
@@ -67,4 +71,47 @@ body{
     border-radius: 20px;
     width: 25%;
     cursor: pointer;
+}
+
+.navbar{
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 7%;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
+    background-color: rgba(255, 255, 255, 0.296); /* Adjust opacity as needed */
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.about-us{
+    display:flex;
+    flex: 1;    
+    padding-right: 1%;
+    align-items: self-end;
+    flex-direction: column;
+  text-decoration-line: none;
+  font-family: sans-serif;
+  color: black;
+}
+.logo{
+    display:flex;
+    flex: 0;
+    flex-direction: column;
+
+}
+.logo-title{
+    display:flex;
+    flex: 3;
+    flex-direction: column;
+    padding-left: 1%;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: default;
 }
