@@ -1,20 +1,20 @@
 console.log("Admin Page Loaded");
 
 
-document.addEventListener('DOMContentLoaded', ()=>{displayBooks()})
+document.addEventListener('DOMContentLoaded', () => { displayBooks() })
 
 var input = document.getElementById("book-qty");
 var BookAddForm = document.getElementById("book-form")
 
-var searchInput =document.getElementById("search-input");
+var searchInput = document.getElementById("search-input");
 
-searchInput.addEventListener('keyup', function(event){
+searchInput.addEventListener('keyup', function (event) {
     const query = event.target.value.toLowerCase()
     displayBooks(query)
 })
 
 //This is for adding new books when the add button is clicked!
-BookAddForm.addEventListener('submit', function(event){
+BookAddForm.addEventListener('submit', function (event) {
 
     event.preventDefault()
     const bookNameField = document.getElementById('book-name-input');
@@ -26,21 +26,21 @@ BookAddForm.addEventListener('submit', function(event){
     const qty = parseInt(qtyField.value);
 
     //Only add to database when theres a non-zero amount of books to add!
-    if(qty >= 1){
+    if (qty >= 1) {
         const book = {
-            name:bookName,
-            author:bookAuthor,
-            quantity:qty
+            name: bookName,
+            author: bookAuthor,
+            quantity: qty
         };
-        
+
         let books = JSON.parse(localStorage.getItem('books')) || [];
 
         //Check if the book we are adding already exists?
         const existingBookIndices = books.findIndex(book => book.name === bookName && book.author === bookAuthor)
-        if(existingBookIndices !== -1){
+        if (existingBookIndices !== -1) {
             //if exists already
             books[existingBookIndices].quantity += qty
-        }else{
+        } else {
             books.push(book);
         }
 
@@ -64,7 +64,7 @@ BookAddForm.addEventListener('submit', function(event){
 
         //時間がないかもしれない
 
-    }else{
+    } else {
         alert("Quantity cannot be 0!")
         return;
     }
@@ -72,20 +72,20 @@ BookAddForm.addEventListener('submit', function(event){
 })
 
 //helper function to get all books currently in local storage on the browser
-function getAllBooks(){
+function getAllBooks() {
     const books = JSON.parse(localStorage.getItem('books')) || [];
     return books;
 }
 
 //This function is a form validation that will not allow you to enter values less than 1
-input.addEventListener('input', function(event){
+input.addEventListener('input', function (event) {
     var inputValue = event.target.value.replace(/[^\d]/g, '');
     // Update the input value with the cleaned numeric value
     event.target.value = inputValue;
 })
 
 
-function displayBooks(query = ""){
+function displayBooks(query = "") {
     const booksContainer = document.getElementById('books-container');
     //Clear any existing html that is present (to kinda refresh)
     booksContainer.innerHTML = "";
@@ -96,15 +96,16 @@ function displayBooks(query = ""){
 
 
     //Setup each book div and shove it into the container
-    filteredBooks.forEach(function(book, index) {
+    filteredBooks.forEach(function (book, index) {
         const bookDiv = document.createElement('div');
+        console.log(book)
         bookDiv.classList.add('book-item')
         const bookInfo = `
         <div class="item-div">
             <h3>${book.name}</h3>
             <p><strong>By ${book.author}</p></strong>
             <p><strong>Quantity: ${book.quantity}</p>
-            <button class="remove-book" data-book-index="${index}">Remove</button>
+            <button class="remove-book" data-bookname="${book.name}" data-bookauthor="${book.author}">Remove</button> 
         <div/>
         `;
 
@@ -121,18 +122,20 @@ function displayBooks(query = ""){
     //Get all the remove buttons, and then attach a listener to them that can delete the books
     const removeBookButtons = document.querySelectorAll('.remove-book');
     removeBookButtons.forEach(button => {
-    button.addEventListener('click', function(event){
-        console.log("Removed the book!")
-        const button = event.currentTarget;
-        const bookIndex = parseInt(button.dataset.bookIndex);
-        removeBook(bookIndex)
+        button.addEventListener('click', function (event) {
+            
+            const button = event.currentTarget;
+            const bookName = button.dataset.bookname;
+            const bookAuthor = button.dataset.bookauthor;
+            console.log(bookName, bookAuthor)
+            removeBook(bookName, bookAuthor)
+        })
     })
-})
 
 }
 
-function filterBooks(searchTerm, books){
-    
+function filterBooks(searchTerm, books) {
+
     const filteredBooks = searchTerm ? books.filter(book =>
         book.name.toLowerCase().includes(searchTerm) || book.author.toLowerCase().includes(searchTerm)
     ) : books;
@@ -141,15 +144,21 @@ function filterBooks(searchTerm, books){
 }
 
 
-function removeBook(index) {
+function removeBook(bookName, bookAuthor) {
     let books = getAllBooks();
     // Remove the book at the specified index from the array
-    books.splice(index, 1);
-    // Update local storage with the removed book
-    localStorage.setItem('books', JSON.stringify(books));
-    // Refresh the displayed book list
-    searchInput.value = ""
     console.log(books)
+    const index = books.findIndex(book => (book.name === bookName && book.author === bookAuthor))
+    console.log("Index: ",index)
+    console.log(`index: ${index}, book: ${books[index]}`)
+    if (index !== -1) {
+        books.splice(index, 1);
+        // Update local storage with the removed book
+        localStorage.setItem('books', JSON.stringify(books));
+        // Refresh the displayed book list
+        searchInput.value = ""
+        console.log(books)
+    }
     displayBooks();
 
 }
