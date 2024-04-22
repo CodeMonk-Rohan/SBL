@@ -1,6 +1,8 @@
 /* CSS for about us page goes here */
 
-
+body{
+    background-image: url(.././assets/bg.jpg);
+}
 .navbar{
     padding-left: 2%;
     padding-right: 2%;
@@ -17,7 +19,7 @@
     border-radius: 25px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
-.about-us{
+.homepage{
     display:flex;
     flex: 1;    
     padding-right: 1%;
@@ -43,12 +45,47 @@
     font-weight: bold;
     cursor: default;
 }
-.logout-button{
-    display:flex;
-    flex: 0;
+.about-card{
+    border: 2px solid black;
+    display: flex;
     flex-direction: column;
-    border: none;
-    background: none;
-    transform: scaleX(-1);
-    cursor: pointer;
+    align-items:left;
+    justify-content: center;
+    margin-top: 6%;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 60%;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.296); /* Adjust opacity as needed */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.connect{
+    font-size: xx-large;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding-left: 4%;
+    padding-top: 4%;
+    margin-bottom: 2%;
+}
+.s-name{
+    font-size: larger;
+    height: 100%;
+    padding-left: 5%;
+    font-family: sans-serif;
+    font-weight: bold
+    
+}
+.git-butt{
+    height: 30px;
+    margin-right: 1%;
+    margin-left: 1%;
+    opacity: 0.8;
+    transition: 0.3s ease;
+}
+.git-butt:hover{
+    scale: 1.1;
+}
+.git-butt:active{
+    scale: 0.9;
 }
