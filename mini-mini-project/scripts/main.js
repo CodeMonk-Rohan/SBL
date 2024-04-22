@@ -29,7 +29,7 @@ logoutButton.addEventListener('click', function(event){
 
 
 function getAllBorrowedBooks(){
-    const users = JSON.parse(localStorage.getItem("users"));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
     const currentUser = users[currentUserIndex];
     const borrowed = currentUser.borrowed;
     return borrowed;
@@ -49,7 +49,8 @@ function displayBorrowedBooks(){
         const bookInfo = `
             <div class="user-item-div">
                 <h3>${book.name}</h3>
-                <p><strong>By ${book.author}</p></strong>   
+                <p><strong>By ${book.author}</p></strong>  
+                <button class="return-book" data-bookname="${book.name}" data-bookauthor="${book.author}">Return</button> 
             <div/>  
         `;
 
@@ -58,7 +59,69 @@ function displayBorrowedBooks(){
 
         //Append this div into the broader parent container that contains the list of all books
         borrowedBooksContainer.appendChild(bookDiv)
+
+        //getting all return buttons and attaching the return logic to them via a listener
+
     })
+
+    const returnButtons = document.querySelectorAll(".return-book")
+        returnButtons.forEach(button=>{
+            button.addEventListener("click", function(event){
+                console.log("Clicked return")
+                const button = event.currentTarget;
+                //get the corresponding data within the button (bookname and author)
+                const bookname = button.dataset.bookname;
+                const bookauthor = button.dataset.bookauthor;
+                console.log("Clicked row with data:", bookauthor, bookname)
+
+                const users = JSON.parse(localStorage.getItem("users")) || [];
+                console.log(users)
+                
+                const userIndex = users.findIndex(user => user.username === username)
+                console.log(username, "???", users[userIndex])
+                console.log("Found user at index",userIndex)
+
+                if(userIndex != -1){
+                    console.log("Found user")
+                    //found that user
+                    const bookIndex = users[userIndex].borrowed.find(book=>book.name === bookname && book.author === bookauthor)
+                    //For currently logged in user, we remove the book that the user wished to return
+                    users[userIndex].borrowed.splice(bookIndex, 1);
+                    //write the updated data to the storage
+                    //----------------
+                    console.log(users[userIndex])
+                    localStorage.setItem("users", JSON.stringify(users))
+
+                    const books = JSON.parse(localStorage.getItem('books')) || []
+                    const bookDatabaseIndex = books.findIndex(book => book.name === bookname && book.author === book.author)
+                    // console.log(books[bookDatabaseIndex])
+                    // There's a chance admin deletes the book after you have borrowed it, in which case we need to add it back
+                    if(bookDatabaseIndex === -1){
+                        console.log("Book does not exist in catalogue, adding it back")
+                        const returningBook = {
+                            name:bookname,
+                            author:bookauthor,
+                            quantity:1
+                        }
+                        books.push(returningBook);
+                        localStorage.setItem("books", JSON.stringify(books))
+                    }else{
+                        
+                        books[bookDatabaseIndex].quantity += 1
+                        localStorage.setItem("books", JSON.stringify(books))
+                    }
+
+                    displayBooks();
+                    displayBorrowedBooks()
+
+                }else{
+                    alert("Did not find user, maybe login?")
+                }
+                
+
+            });
+        })
+
 }
 
 //library database of books
@@ -106,7 +169,7 @@ function displayBooks(query = ""){
     const borrowButtons = document.querySelectorAll('.add-book');
     borrowButtons.forEach(button => {
     button.addEventListener('click', function(event){
-        const button = event.currentTarget;
+        const button = event.currentTarget; 
         // Get the index of the button that was clicked
         const bookname = button.dataset.bookname;
         const bookauthor = button.dataset.bookauthor;
@@ -115,8 +178,8 @@ function displayBooks(query = ""){
         
         if(bookqty > 0){
 
-            
-            const hasBook = users[currentUserIndex].borrowed.some(
+            const localUsers = JSON.parse(localStorage.getItem('users')) || []
+            const hasBook = localUsers[currentUserIndex].borrowed.some(
                 borrowedBook => {
                     return borrowedBook.name === bookname && borrowedBook.author === bookauthor
                 }
@@ -130,8 +193,8 @@ function displayBooks(query = ""){
 
             if(!hasBook){
                 books[bookIndex].quantity -= 1;
-                users[currentUserIndex].borrowed.push(book);
-                localStorage.setItem("users", JSON.stringify(users))
+                localUsers[currentUserIndex].borrowed.push(book);
+                localStorage.setItem("users", JSON.stringify(localUsers))
                 localStorage.setItem("books", JSON.stringify(books))
                 displayBorrowedBooks()
             }else{
