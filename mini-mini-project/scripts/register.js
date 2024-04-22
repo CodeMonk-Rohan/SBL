@@ -27,7 +27,7 @@ registerForm.addEventListener('submit', function(event){
     const password = document.getElementById('password').value;
     
     if (username === "" || password === ""){
-        alert("Invalid Username or Password!")
+        alert("Invalid Username or Password!");
         return;
     }
 
@@ -63,4 +63,13 @@ registerForm.addEventListener('submit', function(event){
     console.log(`Added ${username} to users`)
     
 
+})
+
+
+//aboutus
+const aboutUsButton = document.getElementsByClassName("about-us")
+console.log("About us buttons: ",aboutUsButton[0])
+aboutUsButton[0].addEventListener("click", function(event){
+    event.preventDefault()
+    window.location = "./aboutus.html";
 })

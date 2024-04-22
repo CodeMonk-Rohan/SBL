@@ -127,7 +127,7 @@ function displayBooks(query = "") {
             const button = event.currentTarget;
             const bookName = button.dataset.bookname;
             const bookAuthor = button.dataset.bookauthor;
-            console.log(bookName, bookAuthor)
+            console.log("heck: ", bookName, bookAuthor)
             removeBook(bookName, bookAuthor)
         })
     })
@@ -164,7 +164,23 @@ function removeBook(bookName, bookAuthor) {
 }
 
 
+//logout
+const logoutButton = document.getElementById("logout-button");
+logoutButton.addEventListener('click', function(event){
+    //Override the logged in session username
+    sessionStorage.setItem("username", null);
+    window.location = "./login.html"
 
+})
+
+
+//about us
+const aboutUsButton = document.getElementsByClassName("about-us")
+console.log("About us buttons: ",aboutUsButton[0])
+aboutUsButton[0].addEventListener("click", function(event){
+    event.preventDefault()
+    window.location = "./aboutus.html"
+})
 
 
 

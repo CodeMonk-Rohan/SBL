@@ -1,0 +1,54 @@
+/* CSS for about us page goes here */
+
+
+.navbar{
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 7%;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
+    background-color: rgba(255, 255, 255, 0.296); /* Adjust opacity as needed */
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.about-us{
+    display:flex;
+    flex: 1;    
+    padding-right: 1%;
+    align-items: self-end;
+    flex-direction: column;
+  text-decoration-line: none;
+  font-family: sans-serif;
+  color: black;
+}
+.logo{
+    display:flex;
+    flex: 0;
+    flex-direction: column;
+
+}
+.logo-title{
+    display:flex;
+    flex: 3;
+    flex-direction: column;
+    padding-left: 1%;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: default;
+}
+.logout-button{
+    display:flex;
+    flex: 0;
+    flex-direction: column;
+    border: none;
+    background: none;
+    transform: scaleX(-1);
+    cursor: pointer;
+}

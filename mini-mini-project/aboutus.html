@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="stylesheet" href="./styles/aboutus.css">
+</head>
+<body>
+    <div class="navbar">    
+        <img class="logo" src="././assets/book-square-svgrepo-com.svg" height="35px">
+        <p class="logo-title">Library Management System</p>
+        <a id="go-to-homepage" href="">Home</a>
+        <button class="logout-button" id="logout-button"><img src="././assets/logout-2-svgrepo-com.svg" height="35px"></button>
+        
+    </div>
+    <p>This is the about us page</p>
+    
+    <script>
+        document.getElementById('go-to-homepage').addEventListener('click', function(event){
+            event.preventDefault();
+            
+            if(sessionStorage.getItem("username" !== "")){
+                
+                if(sessionStorage.getItem("username" === "admin")){
+                    window.location = "./admin.html";
+                    return;
+                }
+                window.location = "./index.html"
+                return;
+            }else{
+                window.location = "./login.html"
+            }
+        })
+
+    </script>
+</body>
+</html>

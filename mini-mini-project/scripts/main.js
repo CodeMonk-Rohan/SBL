@@ -87,7 +87,7 @@ function displayBooks(query = ""){
             <h3>${book.name}</h3>
             <p><strong>By ${book.author}</p></strong>
             <p><strong>Quantity: ${book.quantity}</p>
-            <button class="add-book" data-book-index="${index}">Borrow</button>
+            <button class="add-book" data-bookname="${book.name}" data-bookauthor="${book.author}" data-bookqty=${book.quantity}>Borrow</button>
          <div/>
             
         `;
@@ -108,17 +108,25 @@ function displayBooks(query = ""){
     button.addEventListener('click', function(event){
         const button = event.currentTarget;
         // Get the index of the button that was clicked
-        const bookIndex = parseInt(button.dataset.bookIndex);
-        const book = books[bookIndex]
+        const bookname = button.dataset.bookname;
+        const bookauthor = button.dataset.bookauthor;
+        const bookqty = button.dataset.bookqty;
+        console.log(bookauthor)
         
-        if(book.quantity > 0){
+        if(bookqty > 0){
 
             
             const hasBook = users[currentUserIndex].borrowed.some(
                 borrowedBook => {
-                    return borrowedBook.name === book.name && borrowedBook.author === book.author
+                    return borrowedBook.name === bookname && borrowedBook.author === bookauthor
                 }
             )
+            const bookIndex = books.findIndex(book => (book.name === bookname && book.author === bookauthor))
+
+            let book = {
+                name:bookname,
+                author:bookauthor
+            }
 
             if(!hasBook){
                 books[bookIndex].quantity -= 1;
@@ -156,6 +164,12 @@ searchInput.addEventListener('keyup', function(event){
     displayBooks(query)
 })
 
- 
+
+const aboutUsButton = document.getElementsByClassName("about-us")
+console.log("About us buttons: ",aboutUsButton[0])
+aboutUsButton[0].addEventListener("click", function(event){
+    event.preventDefault()
+    window.location = "./aboutus.html"
+})
 
 

@@ -71,3 +71,10 @@ loginForm.addEventListener('submit', function(event){
     //     sessionStorage.setItem("username", "admin")
     // }
 })
+
+const aboutUsButton = document.getElementsByClassName("about-us")
+console.log("About us buttons: ",aboutUsButton[0])
+aboutUsButton[0].addEventListener("click", function(event){
+    event.preventDefault()
+    window.location = "./aboutus.html"
+})
