@@ -45,15 +45,20 @@ body{
 .remove-book{
     border: none;
     display: flex;
-    width: 80px;
-    height: 25px;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 25px;
     align-items: center;
-    padding-left: 15px;
     transition: 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
 }
 .remove-book:active{
     scale: 0.9;
+}
+.remove-book:hover{
+    color: white    ;
+    background-color: rgba(0, 0, 0, 0.685);
 }
 .book-item{
     display: flex;
@@ -152,11 +157,15 @@ body{
 .butt-add:active{
     scale: 0.8;
 }
-
+.butt-add:hover{
+    color: white    ;
+    background-color: rgba(0, 0, 0, 0.685);
+}
 .admin-tools-title{
     font-size: x-large;
     font-family: sans-serif;
     font-weight: bold;
+    cursor: default;
 }
 
 .navbar{
@@ -189,6 +198,7 @@ body{
     display:flex;
     flex: 0;
     flex-direction: column;
+    transition: 0.3s ease;
 
 }
 .logo-title{
@@ -209,4 +219,8 @@ body{
     background: none;
     transform: scaleX(-1);
     cursor: pointer;
+    transition: 0.3s ease;
 }
+.logout-button:hover,.logo:hover{
+    scale: 1.1;
+  }
