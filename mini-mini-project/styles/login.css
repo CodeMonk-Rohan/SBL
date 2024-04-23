@@ -9,6 +9,9 @@ body{
     align-items: center;
     height: 90%;
 }
+.login-form:hover{
+    scale: 1.05;
+}
 .login-form{
     border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
@@ -22,6 +25,7 @@ body{
   background-color: rgba(255, 255, 255, 0.296); /* Adjust opacity as needed */
   backdrop-filter: blur(10px); /* Adjust blur radius as needed */
   overflow: hidden;
+  transition: 0.3s ease;
 }
 .login-title{
     font-family: sans-serif;
@@ -29,6 +33,7 @@ body{
     font-weight: bold;
     display: flex;
     justify-content:center;
+    cursor: default;
 }
 
 .login-input{
@@ -114,4 +119,16 @@ body{
     font-family: sans-serif;
     font-weight: bold;
     cursor: default;
+}
+.butt-login,.butt-register{
+    transition: 0.3s ease;
+    font-weight: bold;
+}
+.butt-login:hover,.butt-register:hover{
+    scale: 1.1;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.685);
+}
+.butt-login:active,.butt-register:active{
+    scale: 0.95;
 }
