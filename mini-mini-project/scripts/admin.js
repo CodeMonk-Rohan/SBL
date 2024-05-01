@@ -4,7 +4,7 @@ console.log("Admin Page Loaded");
 document.addEventListener('DOMContentLoaded', () => { displayBooks() })
 
 var input = document.getElementById("book-qty");
-var BookAddForm = document.getElementById("book-form")
+var BookAddForm = document.getElementById("book-form");
 
 var searchInput = document.getElementById("search-input");
 
@@ -84,7 +84,6 @@ input.addEventListener('input', function (event) {
     event.target.value = inputValue;
 })
 
-
 function displayBooks(query = "") {
     const booksContainer = document.getElementById('books-container');
     //Clear any existing html that is present (to kinda refresh)
@@ -97,9 +96,9 @@ function displayBooks(query = "") {
 
     //Setup each book div and shove it into the container
     filteredBooks.forEach(function (book, index) {
-        const bookDiv = document.createElement('div');
+        const bookDiv = document.createElement('div'); // <div>
         console.log(book)
-        bookDiv.classList.add('book-item')
+        bookDiv.classList.add('book-item') // <div class="book-item">
         const bookInfo = `
         <div class="item-div">
             <h3>${book.name}</h3>
@@ -127,7 +126,7 @@ function displayBooks(query = "") {
             const button = event.currentTarget;
             const bookName = button.dataset.bookname;
             const bookAuthor = button.dataset.bookauthor;
-            console.log("heck: ", bookName, bookAuthor)
+            console.log("Deleted: ", bookName, bookAuthor)
             removeBook(bookName, bookAuthor)
         })
     })
@@ -142,7 +141,6 @@ function filterBooks(searchTerm, books) {
 
     return filteredBooks;
 }
-
 
 function removeBook(bookName, bookAuthor) {
     let books = getAllBooks();
@@ -170,7 +168,6 @@ logoutButton.addEventListener('click', function(event){
     //Override the logged in session username
     sessionStorage.setItem("username", null);
     window.location = "./login.html"
-
 })
 
 

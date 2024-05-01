@@ -79,12 +79,13 @@ function displayBorrowedBooks(){
                 
                 const userIndex = users.findIndex(user => user.username === username)
                 console.log(username, "???", users[userIndex])
-                console.log("Found user at index",userIndex)
+                console.log("Found user at index", userIndex)
 
                 if(userIndex != -1){
                     console.log("Found user")
                     //found that user
-                    const bookIndex = users[userIndex].borrowed.find(book=>book.name === bookname && book.author === bookauthor)
+                    const bookIndex = users[userIndex].borrowed.findIndex(book=>book.name === bookname && book.author === bookauthor)
+
                     //For currently logged in user, we remove the book that the user wished to return
                     users[userIndex].borrowed.splice(bookIndex, 1);
                     //write the updated data to the storage
@@ -116,8 +117,7 @@ function displayBorrowedBooks(){
 
                 }else{
                     alert("Did not find user, maybe login?")
-                }
-                
+                }                
 
             });
         })
