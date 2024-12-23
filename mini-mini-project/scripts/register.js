@@ -70,6 +70,6 @@ registerForm.addEventListener('submit', function(event){
 const aboutUsButton = document.getElementsByClassName("about-us")
 console.log("About us buttons: ",aboutUsButton[0])
 aboutUsButton[0].addEventListener("click", function(event){
-    event.preventDefault()
+    event.preventDefault();
     window.location = "./aboutus.html";
 })
